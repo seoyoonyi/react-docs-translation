@@ -42,13 +42,13 @@ see more examples below. <br/>
   It can be a value of any type, but there is a special behavior for functions. <br/>
   "이 값은 어떤 타입이든 설정할 수 있찌만, 함수인 경우에는 특별한 동작이 적용됩니다." <br/>
   This argument is ignored after the initial render. <br/>
-  "또한, 이 인자는 초기 렌더링 이후에는 무시됩니다." 
+  "또한, 이 인자는 초기 렌더링 이후에는 무시됩니다."
 
 - If you pass a function as `initialState`, it will be treated as an initializer function. <br/>
   "만약 `initialState`로 함수를 전달하면, 그것은 초기화 함수로 간주됩니다." <br/>
   It should be pure, should take no arguments, and should return a value of any type. <br/>
-  "순수 함수여야 하며, 인수를 받지 않아야 하고, 어떤 타입의 값이라도 반환할 수 있어야 합니다."   <br/>
-  "* 순수함수란 외부 상태에 영향을 주거나 의존하지 않고, 동일한 입력에 대해 항상 동일한 출력을 반환하는 함수입니다." <br/>
+  "순수 함수여야 하며, 인수를 받지 않아야 하고, 어떤 타입의 값이라도 반환할 수 있어야 합니다." <br/>
+  "\* 순수함수란 외부 상태에 영향을 주거나 의존하지 않고, 동일한 입력에 대해 항상 동일한 출력을 반환하는 함수입니다." <br/>
   React will call your initializer function when initializing the component, and store its return value as the initial state. <br/>
   "React는 컴포넌트를 초기화할 때 초기화 함수를 호출하고, 그(initializer function) 반환값을 초기 상태로 저장합니다." <br/>
   See an example below. <br/>
@@ -56,10 +56,16 @@ see more examples below. <br/>
 
 ### Returns
 
-`useState` returns an array with exactly two values
+"반환값"
 
-1. The current state. During the first render, it will match the `initialState` you have passed.
-2. The `set` function that lets you update the state to a different value and trigger a re-render.
+`useState` returns an array with exactly two values <br/>
+"`useState`가 정확히 두 개의 값을 가진 배열을 반환합니다."
+
+1. The current state. During the first render, it will match the `initialState` you have passed. <br/>
+   "1. 현재 상태(state) 입니다. 첫 번째 렌더링에서는 당신이 전달한 `initialState`와 동일합니다"
+
+2. The `set` function that lets you update the state to a different value and trigger a re-render. <br/>
+   "2. `set` 함수는 상태를 다른 값으로 업데이트하고, 리렌더링을 트리거할 수 있게 해줍니다."
 
 ### Caveats
 
