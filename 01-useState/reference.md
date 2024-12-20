@@ -69,9 +69,13 @@ see more examples below. <br/>
 
 ### Caveats
 
-- `useState` is a Hook, so you can only call it at the top level of your component or your own Hooks.
+"주의사항"
+
+- `useState` is a Hook, so you can only call it at the top level of your component or your own Hooks. <br/>
+  "`useState`는 Hook이기 때문에, 컴포넌트의 최상단이나 직접 만든 커스텀 Hook의 최상단에서만 호출할 수 있습니다." <br/>
   You can't call it inside loops or conditions.
-  If you nedd that, extract a new component and move the state into it.
+  "반복문이나 조건문 내부에서 이를 호출할 수 없습니다."
+  If you need that, extract a new component and move the state into it.
 
 - In Strict Mode, React will call your initializer function twice in order to help you find accidental impurities.
   This is development-only behavior and does not affect production.
@@ -80,6 +84,8 @@ see more examples below. <br/>
 
 ## 모르는 단어 정리
 
-| **단어/표현**     | **뜻**         | **예문**                                                    | **나만의 설명**                          |
-| ----------------- | -------------- | ----------------------------------------------------------- | ---------------------------------------- |
-| **destructuring** | 구조 분해 할당 | like `[something, setSomething]` using array destructuring. | 배열이나 객체의 값을 쉽게 추출하는 문법. |
+| **단어/표현**     | **뜻**            | **예문**                                                                                           | **나만의 설명**                                                                |
+| ----------------- | ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| **destructuring** | 구조 분해 할당    | like `[something, setSomething]` using array destructuring.                                        | 배열이나 객체의 값을 쉽게 추출하는 문법.                                       |
+| **trigger**       | 유발하다, 트리거  | 2. The `set` function that lets you update the state to a different value and trigger a re-render. | 어떤 행동이나 상태를 시작하거나 유발하는 행위.                                 |
+| **Caveats**       | 주의 사항, 한계점 |                                                                                                    | 어떤 주제나 상황에 대한 경고 또는 제한사항을 의미. 예를 들어 '주의해야 할 점'. |
