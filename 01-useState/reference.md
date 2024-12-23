@@ -73,19 +73,39 @@ see more examples below. <br/>
 
 - `useState` is a Hook, so you can only call it at the top level of your component or your own Hooks. <br/>
   "`useState`는 Hook이기 때문에, 컴포넌트의 최상단이나 직접 만든 커스텀 Hook의 최상단에서만 호출할 수 있습니다." <br/>
-  You can't call it inside loops or conditions.
-  "반복문이나 조건문 내부에서 이를 호출할 수 없습니다."
+  You can't call it inside loops or conditions. <br/>
+  "반복문이나 조건문 내부에서 이를 호출할 수 없습니다." <br/>
   If you need that, extract a new component and move the state into it.
+  "그게 필요하다면, 새 컴포넌트를 만들어 상태를 그 컴포넌트로 옯기세요."
 
-- In Strict Mode, React will call your initializer function twice in order to help you find accidental impurities.
-  This is development-only behavior and does not affect production.
-  If your initializer function is pure (as it should be), this should not affect the behavior.
-  The result from one of the calls will be ignored.
+- In Strict Mode, React will call your initializer function twice in order to help you find accidental impurities. <br/>
+  "Strict Mode에서는 React가 초기화 함수를 두번 호출합니다. 이는 실수로 발생할 수 있는 불순성을 찾아내는데 도움을 주기 위함입니다."
+
+  **설명:**  
+  React의 Strict Mode는 개발 중 의도치 않은 부작용(impurities)을 감지하기 위해 `useState`의 초기화 함수(initializer function)를 두 번 호출합니다.  
+  초기화 함수가 순수(pure)하지 않은 경우, 예를 들어 외부 상태를 변경하거나 부작용을 유발하면 문제를 쉽게 식별할 수 있도록 돕습니다.
+
+  ```javascript
+  const [count, setCount] = useState(() => {
+    console.log('useState 초기화 함수 실행');
+    return 0;
+  });
+  ```
+  This is development-only behavior and does not affect production. <br/>
+  "이는 개발 환경에서만 발생하는 동작이며, 프로덕션에는 영향을 미치지 않습니다." <br/>
+  If your initializer function is pure (as it should be), this should not affect the behavior. <br/>
+  "초기화 함수가 순수하다면(그래야 합니다), 이 동작은 기능에 영향을 미치지 않습니다." <br/>
+  The result from one of the calls will be ignored. <br/>
+  "호출된 결과 중 하나는 무시됩니다."
+
 
 ## 모르는 단어 정리
 
-| **단어/표현**     | **뜻**            | **예문**                                                                                           | **나만의 설명**                                                                |
-| ----------------- | ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| **destructuring** | 구조 분해 할당    | like `[something, setSomething]` using array destructuring.                                        | 배열이나 객체의 값을 쉽게 추출하는 문법.                                       |
-| **trigger**       | 유발하다, 트리거  | 2. The `set` function that lets you update the state to a different value and trigger a re-render. | 어떤 행동이나 상태를 시작하거나 유발하는 행위.                                 |
-| **Caveats**       | 주의 사항, 한계점 |                                                                                                    | 어떤 주제나 상황에 대한 경고 또는 제한사항을 의미. 예를 들어 '주의해야 할 점'. |
+| **단어/표현**     | **뜻**            | **예문**                                                                                           | **나만의 설명**                                                                                  |
+| ----------------- | ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| **destructuring** | 구조 분해 할당    | like `[something, setSomething]` using array destructuring.                                        | 배열이나 객체의 값을 쉽게 추출하는 문법.                                                         |
+| **trigger**       | 유발하다, 트리거  | 2. The `set` function that lets you update the state to a different value and trigger a re-render. | 어떤 행동이나 상태를 시작하거나 유발하는 행위.                                                   |
+| **Caveats**       | 주의 사항, 한계점 |                                                                                                    | 어떤 주제나 상황에 대한 경고 또는 제한사항을 의미. 예를 들어 '주의해야 할 점'.                   |
+| **accidental**    | 의도치 않은       | React calls your initializer function twice in Strict Mode to help you find accidental impurities. | 실수로 발생한 것이며, 계획되거나 의도된 것이 아님.                                               |
+| **impurities**    | 불순성            | React calls your initializer function twice in Strict Mode to help you find accidental impurities. | 함수가 외부 상태를 변경하거나 부작용을 의도치 않게 일으키는 상태. 예를 들어, 순수하지 않은 함수. |
+| **affect**        | 영향을 미치다      |   This is development-only behavior and does not affect production.                                                                 | 어떤 행동이나 상황이 다른 대상이나 결과에 변화를 일으키거나 영향을 줄 때 사용.                    |
